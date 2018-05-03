@@ -14,7 +14,7 @@ var NotificationContainer = createReactClass({
 
   _style: {},
 
-  componentWillMount: function() {
+  componentWillMount: function () {
     // Fix position if width is overrided
     this._style = this.props.getStyles.container(this.props.position);
 
@@ -23,7 +23,7 @@ var NotificationContainer = createReactClass({
     }
   },
 
-  render: function() {
+  render: function () {
     var self = this;
     var notifications;
 
@@ -31,24 +31,27 @@ var NotificationContainer = createReactClass({
       this.props.notifications.reverse();
     }
 
-    notifications = this.props.notifications.map(function(notification) {
+    notifications = this.props.notifications.map(function (notification) {
       return (
-        <NotificationItem
-          ref={ 'notification-' + notification.uid }
-          key={ notification.uid }
-          notification={ notification }
-          getStyles={ self.props.getStyles }
-          onRemove={ self.props.onRemove }
-          noAnimation={ self.props.noAnimation }
-          allowHTML={ self.props.allowHTML }
-          children={ self.props.children }
-        />
+        <div>
+          <div>ABC</div>
+          <NotificationItem
+            ref={'notification-' + notification.uid}
+            key={notification.uid}
+            notification={notification}
+            getStyles={self.props.getStyles}
+            onRemove={self.props.onRemove}
+            noAnimation={self.props.noAnimation}
+            allowHTML={self.props.allowHTML}
+            children={self.props.children}
+          />
+        </div>
       );
     });
 
     return (
-      <div className={ 'notifications-' + this.props.position } style={ this._style }>
-        { notifications }
+      <div className={'notifications-' + this.props.position} style={this._style}>
+        {notifications}
       </div>
     );
   }
