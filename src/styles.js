@@ -1,4 +1,4 @@
-// Used for calculations
+// Used for calculations test
 var defaultWidth = 320;
 var defaultColors = {
   success: {
